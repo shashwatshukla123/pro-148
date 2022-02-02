@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    </head>
+
+    <body>
+        <a-scene>
+
+            <a-camera position="0 8 15"></a-camera>
+            
+            <!-------------------------------------------Asset Management------------------------------------------->
+            <a-assets timeout="10000">
+                <a-asset-item id="girl" src="./models/low_poly_girl/scene.gltf"></a-asset-item>  
+                <a-asset-item id="dog" src="./models/low_poly_dog/scene.gltf"></a-asset-item>
+                <a-asset-item id="bench" src="./models/bench/scene.gltf"></a-asset-item>
+                <a-asset-item id="road" src="./models/road_straight/scene.gltf"></a-asset-item>        
+                <a-asset-item id="lamp" src="./models/roanoke_street_lamp/scene.gltf"></a-asset-item>
+                
+
+                <img id="bg"  src="cartoon-forest-background-vector-28846053.jpg">
+
+            </a-assets>
+            <a-sky src="#bg" 
+            position="0 12.48 -3.5"
+            width="30"
+            height="25"
+            scale="0.5 0.5 0.5"></a-sky>
+
+            <!--------------------------------------Light in the scene-----------------------------------------------------------> 
+
+            <!--Ambient-->
+            <a-entity
+            light="type: point; castShadow: true; color: #e6ca14; intensity: 2.35"
+            position="-5.92951 8.39487 1.29438"
+          >
+          </a-entity>
+          <a-entity light="type: ambient;"> </a-entity>
+
+            
+            <!--------------------------------------GLTF Models----------------------------------------------------------->
+
+            <!--girl-->
+            <a-entity>
+                <a-entity position="-15 0 -10" rotation="0 7 0" scale="6 6 6" gltf-model="#girl" shadow="cast: true;receive:false">
+                </a-entity>
+              </a-entity>
+
+              <!--dog-->
+            <a-entity>
+                <a-entity position="10 2 3" scale="0.005 0.005 0.005" rotation="0 20 0"  gltf-model="#dog" shadow="cast: true; receive:false">
+                </a-entity>
+              </a-entity>
+
+            <!--lamp-->
+            <a-entity>
+                <a-entity position="-40 2 -30" scale="1.50 1.50 1.50" rotation="0 55 0"  gltf-model="#lamp" shadow="cast: true; receive:false">
+                </a-entity>
+              </a-entity>
+
+            <!--road-->
+            <a-entity>
+                <a-entity position="0 0 0" scale="5 5 5" rotation="0 90 0" gltf-model="#road" shadow="cast: true; receive:false">
+                </a-entity>
+              </a-entity>
+
+            <!--bench-->
+            <a-entity>
+                <a-entity position="-5 2 -30" scale="2.5 2.5 2.5" rotation="0 0 0"  gltf-model="#bench" shadow="cast: true; receive:true">
+                </a-entity>
+              </a-entity>
+
+            
+
+        </a-scene>
+    </body>
+</html>
